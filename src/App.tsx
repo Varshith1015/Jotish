@@ -1,7 +1,11 @@
+import { Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/Login/LoginPage.tsx";
+
 export default function App(){
   return (
-    <div className="bg-red-500 text-white text-4xl p-10">
-      Hello world
-    </div>
+    <Routes>
+      
+      <Route path="/login" element={<LoginPage />} />
+    </Routes>
   )
 };
