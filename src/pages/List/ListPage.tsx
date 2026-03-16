@@ -5,21 +5,20 @@ export default function ListPage(){
     const [employees, setEmployees] = useState([]);
     const [scrollTop, setScrollTop] = useState(0);
     const rowHeight = 40;
-    const startIndex = Math.floor(scrollTop / rowHeight);
+    const buffer = 5;
+    const startIndex = Math.max(0, Math.floor(scrollTop / rowHeight) - buffer);
     const containerHeight = 500;
     const visibleRows = Math.ceil(containerHeight / rowHeight);
-    const endIndex = startIndex + visibleRows;
+    const endIndex = startIndex + visibleRows + buffer * 2;
     const visibleEmployees = employees.slice(startIndex, endIndex);
     const totalHeight = employees.length * rowHeight;
     const offsetY = startIndex * rowHeight;
-
-
+    
 
     const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
         const scrollPosition = event.currentTarget.scrollTop;
         setScrollTop(scrollPosition);
-        console.log(scrollTop);
-        console.log("Start Index:", startIndex);
+        console.log("Scroll:", scrollPosition);
         console.log("Start:", startIndex);
         console.log("End:", endIndex);
     };
