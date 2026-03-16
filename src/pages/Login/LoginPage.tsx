@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage(){
+
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -13,6 +16,8 @@ export default function LoginPage(){
         if (login) {
             alert("Logging in...");
             login(username, password);
+            navigate("/list");
+            
         } else {
             alert("Auth context not available.");
         }
