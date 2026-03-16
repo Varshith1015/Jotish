@@ -10,7 +10,9 @@ export const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
 
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(
+  localStorage.getItem("isAuthenticated") === "true"
+);
 
     const login = (username: string, password: string) => {
         console.log("Login clicked", username, password);
