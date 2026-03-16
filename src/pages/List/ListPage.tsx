@@ -9,6 +9,10 @@ export default function ListPage(){
     const containerHeight = 500;
     const visibleRows = Math.ceil(containerHeight / rowHeight);
     const endIndex = startIndex + visibleRows;
+    const visibleEmployees = employees.slice(startIndex, endIndex);
+    const totalHeight = employees.length * rowHeight;
+    const offsetY = startIndex * rowHeight;
+
 
 
     const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
@@ -48,33 +52,24 @@ export default function ListPage(){
         <div style={{ height: "500px", overflowY: "auto" }} onScroll={handleScroll}>
             <h1>List Page</h1>
             <p>Total Employees: {employees.length}</p>
-            <table>
-                <thead>
-                    <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>City</th>
-                    <th>Extension</th>
-                    <th>StartDate</th>
-                    <th>Salary</th>
-                    </tr>
-                </thead>
 
-                <tbody>
-                    {employees.map((employee: any, index: number) => (
-                    <tr key={index}>
-                        <td>{employee[0]}</td>
-                        <td>{employee[1]}</td>
-                        <td>{employee[2]}</td>
-                        <td>{employee[3]}</td>
-                        <td>{employee[4]}</td>
-                        <td>{employee[5]}</td>
-                    </tr>
+            {/* SCROLL CONTAINER */}
+            <div style={{ height: "500px", overflowY: "auto" }} onScroll={handleScroll}>
+               
+                <div style={{ height: totalHeight, position: "relative" }}>
+
+                    <div style={{ transform: `translateY(${offsetY}px)` }}>
+                    
+                    {visibleEmployees.map((employee, index) => (
+                        <div key={index} style={{ height: rowHeight }}>
+                        {employee[0]}
+                        </div>
                     ))}
-                </tbody>
-            </table>
 
-            
+                    </div>
+
+                </div>
+            </div>
 
         </div>
     )
