@@ -8,6 +8,7 @@ export default function DetailsPage(){
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const streamRef = useRef<MediaStream | null>(null);
     const [isDrawing, setIsDrawing] = useState(false);
+    const [finalImage, setFinalImage] = useState<string | null>(null);
 
 
     useEffect(() => {
@@ -96,8 +97,21 @@ export default function DetailsPage(){
         context.lineTo(x, y);
         context.stroke();
     };
+
+
     const handleMouseUp = () => {
         setIsDrawing(false);
+    };
+
+
+    const handleSaveImage = () => {
+        if (!canvasRef.current) return;
+
+        const canvas = canvasRef.current;
+
+        const imageData = canvas.toDataURL("image/png");
+
+        setFinalImage(imageData);
     };
 
 
@@ -127,7 +141,19 @@ export default function DetailsPage(){
                 onMouseUp={handleMouseUp}
                 onMouseLeave={handleMouseUp}
             />
-            
+
+            <button onClick={handleSaveImage}>
+                Save Image
+            </button>
+
+
+            {finalImage && (
+                    <div style={{ marginTop: "20px" }}>
+                        <h3>Final Merged Image</h3>
+                        <img src={finalImage} alt="Merged" style={{ width: "400px" }} />
+                    </div>
+            )}
+
 
 
         </div>
