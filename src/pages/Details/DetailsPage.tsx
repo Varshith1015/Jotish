@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 export default function DetailsPage(){
 
@@ -9,6 +9,8 @@ export default function DetailsPage(){
     const streamRef = useRef<MediaStream | null>(null);
     const [isDrawing, setIsDrawing] = useState(false);
     const [finalImage, setFinalImage] = useState<string | null>(null);
+    const navigate = useNavigate();
+
 
 
     useEffect(() => {
@@ -108,10 +110,14 @@ export default function DetailsPage(){
         if (!canvasRef.current) return;
 
         const canvas = canvasRef.current;
-
         const imageData = canvas.toDataURL("image/png");
 
         setFinalImage(imageData);
+
+        // 🔥 navigate to analytics with image
+        navigate("/analytics", {
+            state: { image: imageData }
+        });
     };
 
 
