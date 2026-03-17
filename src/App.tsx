@@ -3,6 +3,8 @@ import LoginPage from "./pages/Login/LoginPage.tsx";
 import ListPage from "./pages/List/ListPage.tsx";
 import ProtectedRoute from "./components/protectRoute.tsx";
 import DetailsPage from "./pages/Details/DetailsPage.tsx";
+import AnalyticsPage from "./pages/Analytics/AnalyticsPage";
+
 
 export default function App(){
   return (
@@ -11,6 +13,7 @@ export default function App(){
       <Route path="/login" element={<LoginPage />} />
       <Route path="/list" element={<ProtectedRoute><ListPage /></ProtectedRoute>} />
       <Route path="/details/:id" element={<ProtectedRoute><DetailsPage /></ProtectedRoute>} />
+      <Route path="/analytics" element={<ProtectedRoute><AnalyticsPage /></ProtectedRoute>}/>
       
       
     </Routes>
