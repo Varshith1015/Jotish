@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ListPage(){
 
@@ -13,7 +14,8 @@ export default function ListPage(){
     const visibleEmployees = employees.slice(startIndex, endIndex);
     const totalHeight = employees.length * rowHeight;
     const offsetY = startIndex * rowHeight;
-    
+    const navigate = useNavigate();
+
 
     const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
         const scrollPosition = event.currentTarget.scrollTop;
@@ -21,6 +23,10 @@ export default function ListPage(){
         console.log("Scroll:", scrollPosition);
         console.log("Start:", startIndex);
         console.log("End:", endIndex);
+    };
+
+    const handleRowClick = (employeeId: number) => {
+        navigate(`/details/${employeeId}`);
     };
 
 
@@ -60,7 +66,7 @@ export default function ListPage(){
                     <div style={{ transform: `translateY(${offsetY}px)` }}>
                     
                     {visibleEmployees.map((employee, index) => (
-                        <div key={index} style={{ height: rowHeight }}>
+                        <div key={index} style={{ height: rowHeight }} onClick={() => handleRowClick(employee[0])}>
                         {employee[0]}
                         </div>
                     ))}
