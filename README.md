@@ -4,6 +4,7 @@
 
 A modern React application for managing and analyzing employee data with features like authentication, high-performance data rendering, image capture, and data visualization.
 
+---
 
 # 📌 Overview
 
@@ -16,6 +17,7 @@ This project is a multi-page web application that allows users to:
 
 The application is built with a focus on **performance, scalability, and clean architecture**.
 
+---
 
 # ✨ Features
 
@@ -27,7 +29,7 @@ The application is built with a focus on **performance, scalability, and clean a
 * 📊 Data visualization using SVG charts
 * 🧭 Protected routing and navigation
 
-
+---
 
 # 🧱 Tech Stack
 
@@ -38,8 +40,11 @@ The application is built with a focus on **performance, scalability, and clean a
 * **APIs:** Fetch API
 * **Graphics:** HTML5 Canvas & SVG
 
+---
 
 # 📂 Project Structure
+
+```id="f9whg9"
 src/
 │
 ├── components/        # Reusable UI components
@@ -52,26 +57,31 @@ src/
 │
 ├── App.tsx
 └── main.tsx
+```
+
+---
 
 # ⚙️ Installation
 
+```bash id="x8qu18"
 git clone <repository-url>
 cd employee-insights-dashboard
 npm install
 npm run dev
+```
 
-
-
+---
 
 # 🔑 Authentication
 
 Use the following credentials to log in:
 
+```id="t0ss89"
 Username: testuser
 Password: Test123
+```
 
-
-
+---
 
 # 📊 Key Functional Areas
 
@@ -81,14 +91,14 @@ Password: Test123
 * Session persistence with localStorage
 * Route protection for secured pages
 
-
+---
 
 ### 2. Employee List
 
 * Displays employee data fetched from API
 * Optimized rendering for better performance
 
-
+---
 
 ### 3. Details Page
 
@@ -96,22 +106,28 @@ Password: Test123
 * Capture image
 * Draw signature using canvas
 
-
+---
 
 ### 4. Analytics Page
 
 * Displays processed image
 * Shows data visualization using SVG
 
-
+---
 
 # 🧪 Development
 
 Start development server:
+
+```bash id="of0h7f"
 npm run dev
+```
 
 Build for production:
+
+```bash id="p5rcg2"
 npm run build
+```
 
 ---
 
@@ -123,7 +139,7 @@ npm run build
 * Performance optimization techniques
 * Clean and readable code structure
 
-
+---
 
 # 🚀 Future Enhancements
 
@@ -131,6 +147,8 @@ npm run build
 * Add responsive design for mobile devices
 * Enhance data visualization
 * Add API error handling and loading states
+
+---
 
 
 
